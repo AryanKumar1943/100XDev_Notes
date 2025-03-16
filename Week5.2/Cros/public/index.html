@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS Example</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.1/axios.min.js"></script>
+    <script>
+        async function sendRequest() {
+            const a = document.getElementById("a").value;
+            const b = document.getElementById("b").value;
+            const response= await axios.post("http://localhost:3000/sum", {
+                a: a,
+                b: b
+            })
+            console.log(response);
+        }
+    </script>
+</head>
+//npx serve
+//servers a folder over http 
+//cors is  a restriction that matter in the browser 
+//
+<body>
+    <input id="a" type="text" placeholder="First value">
+    <input id="b" type="text" placeholder="Second value">
+    <button onclick="sendRequest()">Find sum</button>
+</body>
+</html>
